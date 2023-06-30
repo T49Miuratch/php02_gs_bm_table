@@ -1,0 +1,43 @@
+*{
+
+    margin: auto;
+
+padding-top: 10px;
+width: 85%;
+
+}
+
+div {
+
+    font-size: large;
+    font-family: 'Shippori Antique B1', sans-serif;
+    text-align: center;
+
+}
+
+h3 {
+
+text-align: center;
+
+}
+
+.dialoguefield {
+
+padding: auto;
+line-height: 3vh;
+
+}
+
+.title1 {
+
+    font-size: 80px;
+
+}
+
+p {
+
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 80px;
+    text-align: left;
+
+}
