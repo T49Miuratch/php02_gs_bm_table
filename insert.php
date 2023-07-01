@@ -10,8 +10,8 @@
 
 //1. POSTデータ取得
 
-$name = $_POST['name'];
-$email = $_POST['email'];
+$dialogue = $_POST['dialogue'];
+$mangatitle = $_POST['mangatitle'];
 $img = $_POST['img'];
 $content = $_POST['content'];
 
@@ -28,17 +28,17 @@ try {
 // 1. SQL文を用意
 $stmt = $pdo->prepare("INSERT INTO
 gs_an_table(
-  id,name,email,img,content,date
+  id,dialogue,mangatitle,img,content,date
   )VALUES(
-NULL, :name, :email, :img, :content, sysdate()    
+NULL, :dialogue, :mangatitle, :img, :content, sysdate()    
 )");
 
 //  2. バインド変数を用意
 // Integer 数値の場合 PDO::PARAM_INT
 // String文字列の場合 PDO::PARAM_STR
 
-$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-$stmt->bindValue(':email', $email, PDO::PARAM_STR);
+$stmt->bindValue(':dialogue', $dialogue, PDO::PARAM_STR);
+$stmt->bindValue(':mangatitle', $mangatitle, PDO::PARAM_STR);
 $stmt->bindValue(':img', $img, PDO::PARAM_STR);
 $stmt->bindValue(':content', $content, PDO::PARAM_STR);
 
@@ -53,7 +53,7 @@ if($status === false){
 }else{
   //５．登録に成功した場合の処理｜index.phpへリダイレクト
 
-  header('Location: index.php');
+  header('Location: select.php');
 
 }
 ?>

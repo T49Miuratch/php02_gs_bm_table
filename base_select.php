@@ -28,13 +28,7 @@ if ($status==false) {
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
     $view .= "<p>";
 
-    $view .= h($result['dialogue']);//メインコンテンツの「セリフ」
-
-    $view .= "<h2>" . "『" . h($result['mangatitle']) ."』". "</h2>";//出典のマンガ
-
-    $view .= "<h3>" . h($result['content']) . "</h3>";//日付を小さく表示する
-
-    $view .= "<h5>" . h($result['date']) . "</h5>";//日付を小さく表示する
+    $view .= h($result['date']) . "|" . h($result['name']) . "|" . h($result['email']) . "|" . h($result['content']);//resultの中身を追記する
     
     $view .= "</p>";
   }
@@ -59,21 +53,18 @@ if ($status==false) {
 <body>
 
 <h3>Manga Dialogue Archive</h3>
-<div class="title1">『あの魂の<br>
-    　震えるセリフを<br>
-    　　　二度三度』</div>
+<div class="title1">『あの魂の震えるセリフを二度三度』</div>
 
 
     <!-- Main[Start] -->
     <form method="post" action="insert.php">
         <div class="dialoguefield">
             <fieldset>
-                <legend><h3>あなたの魂を震わせたセリフを入れてみよう！　うろ覚えもOK！</h3></legend>
-                <img src="img/miggy.png"><br>
-                <label>セリフ<br><textArea name="dialogue" rows="4" cols="40"></textArea></label><br>
-                <!-- <label>ページの画像（任意）<br><input type="file" name="img"></label><br> -->
-                <label>マンガのタイトル<br><input type="text" name="mangatitle"></label><br>
-                <label>コメント<br><textArea name="content" rows="2" cols="40"></textArea></label><br>
+                <legend>あなたの魂を震わせたセリフを入れてみよう！　うろ覚えもOK！</legend>
+                <label>セリフ<br><input type="text" name="name"></label><br>
+                <label>ページの画像（任意）<br><input type="file" name="img"></label><br>
+                <label>マンガのタイトル<br><input type="text" name="email"></label><br>
+                <label>コメント<br><textArea name="content" rows="4" cols="40"></textArea></label><br>
                 <input type="submit" value="送信">
             </fieldset>
         </div>
@@ -83,11 +74,11 @@ if ($status==false) {
 
 
 <!-- Head[Start] -->
-<!-- <header>
+<header>
 <div class="title1">
       <a class="navbar-brand" href="index.php">データ登録</a>
 </div>
-</header> -->
+</header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->

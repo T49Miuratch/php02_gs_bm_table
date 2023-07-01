@@ -13,7 +13,9 @@
 
 <body>
 
-<div class="title1">『あの魂の震えるセリフを二度三度』</div>
+<div class="title1">『あの魂の<br>
+    　震えるセリフを<br>
+    　　　二度三度』</div>
 
     <!-- Head[Start] -->
     <header>
@@ -30,7 +32,7 @@
         <div class="dialoguefield">
             <fieldset>
                 <legend>あなたの魂を震わせたセリフを入れてみよう！　うろ覚えもOK！</legend>
-                <label>セリフ<br><input type="text" name="name"></label><br>
+                <label>セリフ<br><input type="text" name="dialogue"></label><br>
                 <label>ページの画像（任意）<br><input type="file" name="img"></label><br>
                 <label>マンガのタイトル<br><input type="text" name="email"></label><br>
                 <label>コメント<br><textArea name="content" rows="4" cols="40"></textArea></label><br>

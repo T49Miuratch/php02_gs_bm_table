@@ -12,7 +12,7 @@ try {
 }
 
 //２．データ取得SQL作成
-$stmt = $pdo->prepare("SELECT * FROM gs_an_table");
+$stmt = $pdo->prepare("SELECT * FROM manga_an_table");
 $status = $stmt->execute();
 
 //３．データ表示
@@ -28,14 +28,14 @@ if ($status==false) {
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
     $view .= "<p>";
 
-    $view .= h($result['dialogue']);//メインコンテンツの「セリフ」
+    $view .= "<h2>" . "「" . h($result['dialogue']) . "」" .  "</h2>";//メインコンテンツのセリフの記述
 
-    $view .= "<h2>" . "『" . h($result['mangatitle']) ."』". "</h2>";//出典のマンガ
+    $view .= h($result['manga']) . "|" . h($result['source']) . "|" ;//マンガタイトル＋出典を併記
 
-    $view .= "<h3>" . h($result['content']) . "</h3>";//日付を小さく表示する
-
-    $view .= "<h5>" . h($result['date']) . "</h5>";//日付を小さく表示する
+    $view .= h($result['comment']);//登録者のコメント
     
+    $view .= "<h5>" . h($result['date']) . "</h5>";//登録日時（小さく）
+
     $view .= "</p>";
   }
 
@@ -59,21 +59,23 @@ if ($status==false) {
 <body>
 
 <h3>Manga Dialogue Archive</h3>
-<div class="title1">『あの魂の<br>
-    　震えるセリフを<br>
-    　　　二度三度』</div>
+<div class="title1">『あの魂の震えるセリフを二度三度』</div>
 
 
     <!-- Main[Start] -->
     <form method="post" action="insert.php">
         <div class="dialoguefield">
             <fieldset>
-                <legend><h3>あなたの魂を震わせたセリフを入れてみよう！　うろ覚えもOK！</h3></legend>
-                <img src="img/miggy.png"><br>
-                <label>セリフ<br><textArea name="dialogue" rows="4" cols="40"></textArea></label><br>
-                <!-- <label>ページの画像（任意）<br><input type="file" name="img"></label><br> -->
-                <label>マンガのタイトル<br><input type="text" name="mangatitle"></label><br>
-                <label>コメント<br><textArea name="content" rows="2" cols="40"></textArea></label><br>
+                <legend>あなたの魂を震わせたセリフを入れてみよう！　うろ覚えもOK！</legend>
+
+                <label>セリフ：<br><textArea name="dialogue" rows="4" cols="20"></textArea></label><br>
+
+                <label>マンガのタイトル：<br><input type="text" name="manga"></label><br>
+
+                <label>出典巻数・ページ数（任意）：<br><input type="text" name="source"></label><br>
+
+                <label>コメント（任意）：<br><textArea name="comment" rows="4" cols="20"></textArea></label><br>
+
                 <input type="submit" value="送信">
             </fieldset>
         </div>
@@ -83,11 +85,11 @@ if ($status==false) {
 
 
 <!-- Head[Start] -->
-<!-- <header>
-<div class="title1">
+<header>
+<!-- <div class="title1">
       <a class="navbar-brand" href="index.php">データ登録</a>
-</div>
-</header> -->
+</div> -->
+</header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
