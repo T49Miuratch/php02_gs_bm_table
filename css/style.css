@@ -1,13 +1,13 @@
+
+
 body{
 
     margin: auto;
-
 padding-top: 10px;
-padding-left: 5%;
-padding-right: 5%;
-width: 80%;
+padding-left: 15%;
+padding-right: 15%;
 align-items: center;
-text-align: center;
+text-align: left;
 
 }
 
@@ -36,7 +36,7 @@ text-align: center;
 margin: auto;
 padding: auto;
 line-height: 3vh;
-align-items: center;
+align-items: left;
 
 }
 
@@ -50,6 +50,7 @@ p {
 
     font-family: 'Shippori Antique B1', sans-serif;
     font-size: 80px;
-    text-align: center;
+    text-align: left;
+    background-color: white;
 
 }

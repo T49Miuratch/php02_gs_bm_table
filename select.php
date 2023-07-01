@@ -96,5 +96,20 @@ if ($status==false) {
 </div>
 <!-- Main[End] -->
 
+    <!-- Main[Start] -->
+    <form method="post" action="insert.php">
+        <div class="dialoguefield">
+            <fieldset>
+                <legend><h3>あなたも、あなたの魂を震わせたセリフを入れてみよう！</h3></legend>
+                <label>セリフ<br><textArea name="dialogue" rows="4" cols="40"></textArea></label><br>
+                <!-- <label>ページの画像（任意）<br><input type="file" name="img"></label><br> -->
+                <label>マンガのタイトル<br><input type="text" name="mangatitle"></label><br>
+                <label>コメント<br><textArea name="content" rows="2" cols="40"></textArea></label><br>
+                <input type="submit" value="送信">
+            </fieldset>
+        </div>
+    </form>
+    <!-- Main[End] -->
+
 </body>
 </html>
