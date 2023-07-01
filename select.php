@@ -30,9 +30,9 @@ if ($status==false) {
 
     $view .= h($result['dialogue']);//メインコンテンツの「セリフ」
 
-    $view .= "<h2>" . "『" . h($result['mangatitle']) ."』". "</h2>";//出典のマンガ
+    $view .= "<h3>" . "『" . h($result['mangatitle']) ."』". "</h3>";//出典のマンガ
 
-    $view .= "<h3>" . h($result['content']) . "</h3>";//日付を小さく表示する
+    $view .= "<h4>" . h($result['content']) . "</h4>";//登録者のコメント
 
     $view .= "<h5>" . h($result['date']) . "</h5>";//日付を小さく表示する
     
